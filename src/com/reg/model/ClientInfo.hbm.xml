@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+  <class name="com.reg.model.ClientInfo" table="ClientInfo">  
+  <id name="cId" type="java.lang.Integer"> 
+  <column name ="ID"/>
+        <generator class="foreign">
+        <param name="property">ClientContact</param></generator>
+  </id>
+
+  <property name="day" type="int" column="day" /> 
+  <property name="month" type="int" column="month" /> 
+  <property name="year" type="int" column="year" /> 
+  <property name="age" type="int" column="age" /> 
+  <property name="gender" type="string" column="gender" />
+  <property name="CoB" type="string" column="CoB" />
+  
+  <set name="ra" inverse="true" cascade ="all">
+  <key column="ID" not-null="true"/>
+  <one-to-many class="com.reg.model.ReadingAbility"/>
+  </set>
+  
+  <set name="sa" inverse="true" cascade ="all">
+  <key column="ID" not-null="true"/>
+  <one-to-many class="com.reg.model.SpeakingAbility"/>
+  </set>
+  
+  <set name="wa" inverse="true" cascade ="all">
+  <key column="ID" not-null="true"/>
+  <one-to-many class="com.reg.model.WritingAbility"/>
+  </set>
+  
+  <one-to-one name="LanguagePreference" class="com.reg.model.LanguagePreference" cascade="save-update"></one-to-one> 
+  <one-to-one name="ClientContact" class="com.reg.model.ClientContact" constrained="true"/> 
+  
+ </class>
+</hibernate-mapping>

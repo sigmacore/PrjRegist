@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!DOCTYPE hibernate-configuration PUBLIC
+
+"-//Hibernate/Hibernate Configuration DTD//EN"
+
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<!-- Hao 060314 -->
+
+<hibernate-configuration>
+
+<session-factory>
+
+<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+
+<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/dbo</property>
+
+<property name="hibernate.connection.username">root</property>
+
+<property name="hibernate.connection.password">0811</property>
+
+<property name="hibernate.default_schema">dbo</property>   
+
+
+<property name="hibernate.connection.pool_size">10</property>
+
+<property name="show_sql">true</property>
+
+<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+<property name="hibernate.hbm2ddl.auto">update</property>
+
+<!-- Mapping files -->
+
+ <mapping resource="com/reg/model/Address.hbm.xml"/>  
+ <mapping resource="com/reg/model/ClientContact.hbm.xml"/> 
+ <mapping resource="com/reg/model/SocialGroup.hbm.xml"/> 
+ <mapping resource="com/reg/model/ClientInfo.hbm.xml"/> 
+ <mapping resource="com/reg/model/LanguagePreference.hbm.xml"/> 
+ <mapping resource="com/reg/model/ReadingAbility.hbm.xml"/> 
+ <mapping resource="com/reg/model/WritingAbility.hbm.xml"/> 
+ <mapping resource="com/reg/model/SpeakingAbility.hbm.xml"/> 
+
+</session-factory>
+
+</hibernate-configuration>

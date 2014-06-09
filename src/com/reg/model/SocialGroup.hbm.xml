@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+  <class name="com.reg.model.SocialGroup" table="SocialGroup">   
+  <id name="cId" type="java.lang.Integer"> 
+  <column name ="ID"/>
+        <generator class="foreign">
+        <param name="property">ClientContact</param></generator>
+  </id>
+  
+  <property name="group" type="string" column="sgroup" /> 
+  
+  <one-to-one name="ClientContact" class="com.reg.model.ClientContact" constrained="true"/> 
+
+ </class>
+</hibernate-mapping>

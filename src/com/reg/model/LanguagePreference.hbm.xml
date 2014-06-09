@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+
+  <class name="com.reg.model.LanguagePreference" table="LanguagePreference">  
+  <id name="cId" type="java.lang.Integer"> 
+  <column name ="ID"/>
+        <generator class="foreign">
+        <param name="property">ClientInfo</param></generator>
+  </id>
+
+  <property name="s" type="string" column="s" /> 
+  <property name="w" type="string" column="w" />
+  <property name="r" type="string" column="r" />
+
+   <one-to-one name="ClientInfo" class="com.reg.model.ClientInfo" constrained="true"/> 
+
+ </class>
+</hibernate-mapping>

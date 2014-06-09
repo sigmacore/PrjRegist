@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+  <class name="com.reg.model.Address" table="address">   
+  <id name="cId" type="java.lang.Integer"> 
+  <column name ="ID"/>
+        <generator class="foreign">
+        <param name="property">ClientContact</param></generator>
+  </id>
+
+  <property name="addr" type="string" column="addr" />
+  <property name="num" type="int" column="num" /> 
+  <property name="apt" type="int" column="apt" /> 
+  <property name="town" type="string" column="town" />
+  <property name="state" type="string" column="state" />
+  <property name="zip" type="int" column="zip" /> 
+  
+ <one-to-one name="ClientContact" class="com.reg.model.ClientContact" constrained="true"/> 
+ 
+ </class>
+</hibernate-mapping>
