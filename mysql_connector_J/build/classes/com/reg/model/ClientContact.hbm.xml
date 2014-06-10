@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+  <class name="com.reg.model.ClientContact" table="clientContact">   
+  <id name="cId" type="java.lang.Integer"> 
+  <column name ="ID"/>
+    <generator class="native"/>
+  </id>
+
+  <property name="fname" type="string" column="fname" />
+  <property name="lname" type="string" column="lname" />
+  <property name="cname" type="string" column="cname" />
+  <property name="hphone" type="long" column="hphone" />
+  <property name="wphone" type="long" column="wphone" />
+  <property name="cphone" type="long" column="cphone" />
+  <property name="email" type="string" column="email" />
+  <property name="residence" type="string" column="residence" />
+  
+  <one-to-one name="address" class="com.reg.model.Address" 
+    cascade="save-update"></one-to-one> 
+  <one-to-one name="SocialGroup" class="com.reg.model.SocialGroup" 
+    cascade="save-update"></one-to-one> 
+  <one-to-one name="ClientInfo" class="com.reg.model.ClientInfo" 
+    cascade="save-update"></one-to-one> 
+  
+  
+</class>
+
+</hibernate-mapping>
